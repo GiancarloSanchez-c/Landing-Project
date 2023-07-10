@@ -1,7 +1,15 @@
-import { FaSearch, FaUser } from "react-icons/fa";
+import { useState } from "react";
+import { FaSearch, FaBars, FaUser } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 export const Header = () => {
+  const [menu, setMenu] = useState(false);
+
+  const openMenu = () => {
+    setMenu(!menu);
+  };
+
   return (
     <div className="Header">
       <div className="Wrapper">
@@ -16,6 +24,35 @@ export const Header = () => {
             </Link>
           </h1>
         </div>
+        <button onClick={openMenu} className="Header-mobile">
+          {menu ? <FaBars size={25} /> : <AiOutlineClose size={25} color="white" />}
+        </button>
+
+        <nav className={`navbar-mobile ${menu ? "" : "isActive"}`}>
+          <ul>
+            <li>
+              <Link to="/account/login" title="Login">
+                Login
+              </Link>
+            </li>
+            <li>
+              <Link to="/account/login" title="Login">
+                Registrate
+              </Link>
+            </li>
+            <li>
+              <Link to="/account/login" title="Login">
+                Puntos de Venta
+              </Link>
+            </li>
+            <li>
+              <Link to="/account/login" title="Login">
+                Logout
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
         <div className="Header-form">
           <FormSearch />
         </div>
@@ -51,3 +88,8 @@ const FormSearch = () => {
     </form>
   );
 };
+
+/* 
+className={navbar-mobile ${menu ? "" : "isActive"}},
+className={navbar-mobile ${menu ? "" : "isActive"}}.
+*/

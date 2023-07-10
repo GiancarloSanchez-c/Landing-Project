@@ -7,14 +7,22 @@
 
   .content {
     @include flex(row, wrap, center, flex-start);
+
+    @include media(48rem) {
+      @include flex(column, wrap, center, center);
+    }
   }
 
   &-list {
     @include flex(row, wrap, flex-start, center);
     background: $c-white;
-    padding: 25px;
+    padding: 0.5rem;
     flex: 70%;
     gap: 2rem;
+
+    @include media(48rem) {
+      justify-content: center;
+    }
 
     &_article {
       @include flex(column, wrap, center, flex-start);
@@ -27,6 +35,11 @@
       img {
         border-radius: 0.625rem;
         transition: all .4s ease-in;
+
+        @include media(90rem) {
+
+          max-width: 20.625rem;
+        }
 
         &:hover {
           transform: scale(1.1)
@@ -67,7 +80,13 @@
     @include flex(row, wrap, center, center);
     gap: 3rem;
     flex: 30%;
-    box-shadow: -1px -17px 36px rgba(122, 117, 122, 0.1);
+    box-shadow: -0.0625rem -1.0625rem 2.25rem rgba(122, 117, 122, 0.1);
+
+    @include media(48rem) {
+      flex-flow: column nowrap;
+      margin: 0.9375rem 0 0;
+      gap: 1rem;
+    }
 
     h2 {
       color: #3d2d87;
@@ -84,6 +103,13 @@
       padding: 0 1.25rem;
 
       .effect-lexi {
+
+        img {
+          @include media (48rem) {
+            max-width: 20.625rem;
+          }
+        }
+
         figcaption {
           display: none;
           position: absolute;
@@ -91,7 +117,8 @@
           width: 100%;
           height: 100%;
           transition: all .5s ease-in;
-          z-index: 1; /* Asegura que el figcaption esté por encima del pseudo-elemento */
+
+
 
           a {
             img {
@@ -106,6 +133,7 @@
 
       &:hover {
         opacity: .8;
+
         figcaption {
           display: block;
         }
@@ -124,7 +152,8 @@
           transform-origin: 50% 50%;
           overflow: hidden;
           transition: opacity 0.3s ease, transform 0.3s ease;
-          z-index: 0; /* Asegura que el pseudo-elemento esté debajo del figcaption */
+          z-index: 0;
+          /* Asegura que el pseudo-elemento esté debajo del figcaption */
 
         }
 

@@ -138,4 +138,10 @@ body {
   &:hover {
     background-color: $light-20;
   }
+  @include media(64rem) {
+    padding: 4px;
+  }
+  @include media(48rem) {
+    padding: 1rem;
+  }
 }

@@ -3,15 +3,32 @@
 .Banner {
     width: 100%;
 
+    @include media (26.5625rem){
+        display: none;
+    }
     .Wrapper {
         position: absolute;
         top: 30%;
         left: 12%;
+
+        @include media(76.25rem) {
+            top: 25%;
+            left: 10%
+        }
+        @include media(48rem) {
+            top: 28%
+        }
     }
 
     .carousel-info {
         @include flex(column, nowrap, center, normal);
         gap: 1rem;
+
+        @include media(76.25rem) {
+            gap: 10px;
+        }
+
+        @include media(48rem) {}
     }
 
     .carousel-image {
@@ -66,10 +83,18 @@
         img {
             max-width: 1.5rem;
         }
+
+        @include media(48rem) {
+            display: none;
+        }
     }
 
     .carousel-description {
         @include flex(column, nowrap, normal, normal);
         gap: 0.625rem;
+
+        @include media(48rem) {
+            display: none;
+        }
     }
 }
