@@ -1,0 +1,85 @@
+@use '../partials/' as *;
+
+.Footer {
+  background-color: $c-black;
+
+
+  .Wrapper {
+    @include flex(row, nowrap, space-between, center);
+    padding: 3.75rem 0;
+  }
+
+  &-logo {
+    img {
+      width: 15.625rem;
+      height: 6.25rem;
+    }
+  }
+
+
+  &-info {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 15px 0 0;
+
+      li {
+        list-style: circle;
+        color: $c-gray;
+        a {
+          font-size: 0.75rem;
+          color: $c-gray;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+
+  &-social {
+    @include flex(column, nowrap, center, center);
+    gap: 1rem;
+
+    h3 {
+      margin: 0 0 0.9375rem;
+    }
+
+    ul {
+      @include flex(row, nowrap, center, center);
+      gap: 1rem;
+
+      li {
+        padding: 10px 15px;
+        background-color: #333333;
+        border-radius: 0.2125rem;
+        transition: all .5s ease-in;
+
+        &:hover {
+          opacity:.6;
+        }
+      }
+    }
+
+    &_ayuda {
+      @include flex(row, nowrap, center, center);
+      padding: 0 20px 20px;
+      border: 1px solid $c-violet;
+      background-color: $c-violet;
+      width: 100%;
+      transition: all .5s ease-in;
+
+      &:hover {
+        opacity:.8;
+      }
+      span {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin: 0.875rem 0 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@use '../partials/' as *;
+
+.Banner {
+    width: 100%;
+
+    .Wrapper {
+        position: absolute;
+        top: 30%;
+        left: 12%;
+    }
+
+    .carousel-info {
+        @include flex(column, nowrap, center, normal);
+        gap: 1rem;
+    }
+
+    .carousel-image {
+        max-width: 31.25rem;
+        width: 100%;
+        height: auto;
+        opacity: 0;
+        transition: 1s;
+        position: relative;
+
+        &.loaded {
+            opacity: 1;
+        }
+
+    }
+
+    .carousel-buttons {
+        button {
+            color: $c-white;
+            border-radius: 50%;
+            border: 0.0625rem solid $c-gray;
+            background-color: $light-20;
+            padding: 0.625rem 1rem;
+            margin: 0 0.3125rem;
+            cursor: pointer;
+        }
+
+        .button-left {
+            position: absolute;
+            left: 0;
+            top: 40%;
+        }
+
+        .button-right {
+            position: absolute;
+            right: 0;
+            top: 40%;
+        }
+    }
+
+    .carousel-logo {
+        img {
+            max-width: 65%;
+        }
+    }
+
+    .carousel-ticket {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        img {
+            max-width: 1.5rem;
+        }
+    }
+
+    .carousel-description {
+        @include flex(column, nowrap, normal, normal);
+        gap: 0.625rem;
+    }
+}

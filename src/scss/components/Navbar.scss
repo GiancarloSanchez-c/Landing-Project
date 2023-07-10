@@ -1,0 +1,56 @@
+@use '../partials/' as *;
+
+.Navbar {
+    width: 100%;
+    background: linear-gradient(90deg, $c-vivid-red-2 40%, $c-blue 60%);
+    height: 2.5rem;
+
+    .Wrapper {
+        @include flex(row, nowrap, flex-start, center);
+        padding: 0.5rem 0 0;
+
+    }
+
+    &-top {
+        ul {
+            @include flex(row, nowrap, center, center);
+            li {
+                margin: 0 5px;
+
+                &:first-of-type {
+                    margin-left: 0;
+                }
+
+                a {
+
+                    &:last-of-type {
+                        border: none;
+
+                    }
+
+                    &::after {
+                        content: '|';
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    &-principal {
+
+        background-color: rgb(215, 133, 133);
+        width: 100%;
+        @include flex(row, nowrap, space-around,center);
+
+        &_logo {
+            h1 {
+                a {
+                    img {
+                        width: 15.625rem;
+                    }
+                }
+            }
+        }
+    }
+}

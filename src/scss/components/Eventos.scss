@@ -1,0 +1,136 @@
+@use '../partials/' as *;
+
+
+.Events {
+  width: 100%;
+  margin: 3rem 0;
+
+  .content {
+    @include flex(row, wrap, center, flex-start);
+  }
+
+  &-list {
+    @include flex(row, wrap, flex-start, center);
+    background: $c-white;
+    padding: 25px;
+    flex: 70%;
+    gap: 2rem;
+
+    &_article {
+      @include flex(column, wrap, center, flex-start);
+      gap: 1rem;
+      transition: all .3s ease-in;
+
+    }
+
+    &_image {
+      img {
+        border-radius: 0.625rem;
+        transition: all .4s ease-in;
+
+        &:hover {
+          transform: scale(1.1)
+        }
+      }
+    }
+
+    &_description {
+      @include flex(row, wrap, flex-start, center);
+      gap: 1.5rem;
+
+      span {
+        color: $c-dark-gray-1;
+        font-size: 0.8125rem;
+      }
+
+      strong {
+        letter-spacing: 0.075rem;
+        color: $c-black;
+        font-weight: 800;
+        font-size: 0.8125rem;
+      }
+
+      h3 {
+        color: $c-black;
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.0313rem;
+        line-height: normal;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  &-featured {
+    @include flex(row, wrap, center, center);
+    gap: 3rem;
+    flex: 30%;
+    box-shadow: -1px -17px 36px rgba(122, 117, 122, 0.1);
+
+    h2 {
+      color: #3d2d87;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 2rem 0;
+      font-size: 1.2rem;
+      line-height: 1.9rem;
+    }
+
+    .item--desktop {
+      position: relative;
+      transition: all .6s ease-in;
+      padding: 0 1.25rem;
+
+      .effect-lexi {
+        figcaption {
+          display: none;
+          position: absolute;
+          top: 65%;
+          width: 100%;
+          height: 100%;
+          transition: all .5s ease-in;
+          z-index: 1; /* Asegura que el figcaption esté por encima del pseudo-elemento */
+
+          a {
+            img {
+              width: 40px;
+              position: absolute;
+              right: 10%;
+
+            }
+          }
+        }
+      }
+
+      &:hover {
+        opacity: .8;
+        figcaption {
+          display: block;
+        }
+
+        &::before {
+          position: absolute;
+          right: -40px;
+          bottom: -40px;
+          width: 120px;
+          height: 120px;
+          border: 8px solid #fff;
+          border-radius: 50%;
+          content: "";
+          opacity: 1;
+          transform: scale3d(1, 1, 1);
+          transform-origin: 50% 50%;
+          overflow: hidden;
+          transition: opacity 0.3s ease, transform 0.3s ease;
+          z-index: 0; /* Asegura que el pseudo-elemento esté debajo del figcaption */
+
+        }
+
+      }
+    }
+
+
+  }
+}
