@@ -29,7 +29,7 @@ export const Header = () => {
           className={`Header-mobile ${menu ? "" : "isActive"}`}
         >
           {menu ? (
-            <AiOutlineClose size={25} color="black" />
+            <AiOutlineClose size={25} color="white" />
           ) : (
             <FaBars size={25} />
           )}
