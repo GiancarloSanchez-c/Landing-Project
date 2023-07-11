@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const Header = () => {
   const [menu, setMenu] = useState(false);
 
-  const openMenu = () => {
+  const toggleMenu = () => {
     setMenu(!menu);
   };
 
@@ -24,34 +24,43 @@ export const Header = () => {
             </Link>
           </h1>
         </div>
-        <button onClick={openMenu} className="Header-mobile">
-          {menu ? <FaBars size={25} /> : <AiOutlineClose size={25} color="white" />}
+        <button
+          onClick={toggleMenu}
+          className={`Header-mobile ${menu ? "" : "isActive"}`}
+        >
+          {menu ? (
+            <AiOutlineClose size={25} color="black" />
+          ) : (
+            <FaBars size={25} />
+          )}
         </button>
 
-        <nav className={`navbar-mobile ${menu ? "" : "isActive"}`}>
-          <ul>
-            <li>
-              <Link to="/account/login" title="Login">
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link to="/account/login" title="Login">
-                Registrate
-              </Link>
-            </li>
-            <li>
-              <Link to="/account/login" title="Login">
-                Puntos de Venta
-              </Link>
-            </li>
-            <li>
-              <Link to="/account/login" title="Login">
-                Logout
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        {menu && (
+          <nav className={`navbar-mobile ${menu ? "isActive" : ""}`}>
+            <ul>
+              <li>
+                <Link to="/account/login" title="Login">
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link to="/account/login" title="Login">
+                  Registrate
+                </Link>
+              </li>
+              <li>
+                <Link to="/account/login" title="Login">
+                  Puntos de Venta
+                </Link>
+              </li>
+              <li>
+                <Link to="/account/login" title="Login">
+                  Logout
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        )}
 
         <div className="Header-form">
           <FormSearch />
@@ -88,8 +97,3 @@ const FormSearch = () => {
     </form>
   );
 };
-
-/* 
-className={navbar-mobile ${menu ? "" : "isActive"}},
-className={navbar-mobile ${menu ? "" : "isActive"}}.
-*/
