@@ -28,6 +28,11 @@
                     width: 50%;
                     position: relative;
 
+                    @include media(26.5625rem) {
+                        width: 100%;
+                        padding: 10px;
+                    }
+
                     label {
                         color: $c-gray;
                     }
@@ -53,6 +58,11 @@
                         width: 1.5rem;
                         height: 1.5rem;
                         outline: none;
+
+                        @include media(26.5625rem) {
+                            top: 3rem;
+                        }
+
                     }
                 }
 
@@ -65,7 +75,7 @@
                         color: $c-vivid-red-1;
                         transition: all .4s ease-in;
                         cursor: pointer;
-
+                      
                         &:hover {
                             background-color: $c-vivid-red-1;
                             color: $c-white;
@@ -79,6 +89,12 @@
                 @include flex(row, nowrap, center, center);
                 margin: 20px 0 0;
                 gap: 7rem;
+
+                @include media(425px) {
+                    margin: 40px 0 0;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
 
                 a {
                     text-decoration: underline;
@@ -95,9 +111,6 @@
 
         }
 
-
-
-
         &_banner {
             flex: 50%;
             width: 100%;
@@ -105,6 +118,10 @@
 
             img {
                 height: 100vh;
+            }
+
+            @include media(26.5625rem){
+                display: none;
             }
 
         }
